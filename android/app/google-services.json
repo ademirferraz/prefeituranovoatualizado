@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "164894839095",
+    "project_id": "prefeituranovo-24fc1",
+    "storage_bucket": "prefeituranovo-24fc1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164894839095:android:a73d87537e29f057968ab2",
+        "android_client_info": {
+          "package_name": "br.gov.prefeitura.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALvTE8lKp-uUo9lbMZ4EHwPz5Xk-2sUkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
