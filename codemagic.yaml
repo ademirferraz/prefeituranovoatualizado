@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 workflows:
   ios-release:
     name: iOS Release Build
@@ -26,7 +25,6 @@ workflows:
       provisioning_profile_url: Envie pela interface do Codemagic
       signing_identity: Apple Distribution
       provisioning_profile_name: $APPLE_PROVISIONING_PROFILE_NAME
-=======
 workflows:
   ios-release:
     name: iOS Release Build
@@ -54,4 +52,3 @@ workflows:
       provisioning_profile_url: Envie pela interface do Codemagic
       signing_identity: Apple Distribution
       provisioning_profile_name: $APPLE_PROVISIONING_PROFILE_NAME
->>>>>>> 0249e0ebaf4372c031fc4162c30d7b9e490bbdfa

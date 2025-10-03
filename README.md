@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # prefeituranovoatualizado
 
 A new Flutter project.
@@ -15,7 +14,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-=======
 # prefeituranovoatualizado
 
 A new Flutter project.
@@ -32,4 +30,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
->>>>>>> 0249e0ebaf4372c031fc4162c30d7b9e490bbdfa
