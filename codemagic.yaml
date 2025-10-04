@@ -2,53 +2,48 @@ workflows:
   ios-release:
     name: iOS Release Build
     instance_type: mac_mini
+    project: prefeituranovoatualizado
     max_build_duration: 60
     environment:
       flutter: stable
       xcode: latest
       cocoapods: default
       vars:
-        APPLE_CERTIFICATE_PASSWORD: Envie pela interface do Codemagic
-        APPLE_PROVISIONING_PROFILE_NAME: Envie pela interface do Codemagic
+        APPLE_CERTIFICATE_PASSWORD: Enviar pelo painel do Codemagic
+        APPLE_PROVISIONING_PROFILE_NAME: Enviar pelo painel do Codemagic
     scripts:
       - name: Instalar dependências
-        script: |
-          flutter pub get
+        script: flutter pub get
+      - name: Verificar código
+        script: flutter analyze
+      - name: Testes unitários
+        script: flutter test
       - name: Build iOS
-        script: |
-          flutter build ios --release --no-codesign
+        script: flutter build ios --release --no-codesign
     artifacts:
       - build/ios/ipa/*.ipa
     code_signing:
-      certificate_url: Envie pela interface do Codemagic
+      certificate_url: Enviar pelo painel do Codemagic
       certificate_password: $APPLE_CERTIFICATE_PASSWORD
-      provisioning_profile_url: Envie pela interface do Codemagic
+      provisioning_profile_url: Enviar pelo painel do Codemagic
       signing_identity: Apple Distribution
       provisioning_profile_name: $APPLE_PROVISIONING_PROFILE_NAME
-workflows:
-  ios-release:
-    name: iOS Release Build
-    instance_type: mac_mini
+
+  android-release:
+    name: Android Release Build
+    instance_type: linux_x2
+    project: prefeituranovoatualizado
     max_build_duration: 60
     environment:
       flutter: stable
-      xcode: latest
-      cocoapods: default
-      vars:
-        APPLE_CERTIFICATE_PASSWORD: Envie pela interface do Codemagic
-        APPLE_PROVISIONING_PROFILE_NAME: Envie pela interface do Codemagic
     scripts:
       - name: Instalar dependências
-        script: |
-          flutter pub get
-      - name: Build iOS
-        script: |
-          flutter build ios --release --no-codesign
+        script: flutter pub get
+      - name: Verificar código
+        script: flutter analyze
+      - name: Testes unitários
+        script: flutter test
+      - name: Build Android (.aab)
+        script: flutter build appbundle --release
     artifacts:
-      - build/ios/ipa/*.ipa
-    code_signing:
-      certificate_url: Envie pela interface do Codemagic
-      certificate_password: $APPLE_CERTIFICATE_PASSWORD
-      provisioning_profile_url: Envie pela interface do Codemagic
-      signing_identity: Apple Distribution
-      provisioning_profile_name: $APPLE_PROVISIONING_PROFILE_NAME
+      - build/app/outputs/bundle/release/app-release.aab
