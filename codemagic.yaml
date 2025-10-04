@@ -2,15 +2,14 @@ workflows:
   ios-release:
     name: iOS Release Build
     instance_type: mac_mini
-    project: prefeituranovoatualizado
     max_build_duration: 60
     environment:
       flutter: stable
       xcode: latest
       cocoapods: default
       vars:
-        APPLE_CERTIFICATE_PASSWORD: Enviar pelo painel do Codemagic
-        APPLE_PROVISIONING_PROFILE_NAME: Enviar pelo painel do Codemagic
+        APPLE_CERTIFICATE_PASSWORD: $APPLE_CERTIFICATE_PASSWORD
+        APPLE_PROVISIONING_PROFILE_NAME: $APPLE_PROVISIONING_PROFILE_NAME
     scripts:
       - name: Instalar dependências
         script: flutter pub get
@@ -22,17 +21,10 @@ workflows:
         script: flutter build ios --release --no-codesign
     artifacts:
       - build/ios/ipa/*.ipa
-    code_signing:
-      certificate_url: Enviar pelo painel do Codemagic
-      certificate_password: $APPLE_CERTIFICATE_PASSWORD
-      provisioning_profile_url: Enviar pelo painel do Codemagic
-      signing_identity: Apple Distribution
-      provisioning_profile_name: $APPLE_PROVISIONING_PROFILE_NAME
 
   android-release:
     name: Android Release Build
     instance_type: linux_x2
-    project: prefeituranovoatualizado
     max_build_duration: 60
     environment:
       flutter: stable
